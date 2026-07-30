@@ -3,7 +3,7 @@ obj/
 /packages/
 riderModule.iml
 /_ReSharper.Caches/
-.idea
+.idea/
 
 # This .gitignore file should be placed at the root of your Unity project directory
 #
