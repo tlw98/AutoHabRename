@@ -6,7 +6,7 @@ This mod will automatically rename stations according to values in `modules.name
 
 Adding a `!` at the start of a name will prevent that station from being renamed.
 
-Note: All modules and orbits are not included in this lists (yet). I've included most major orbits and modules that have caps for interface orbits.
+Note: All modules and orbits are not included in these lists (yet). I've included most major orbits and modules that have caps for interface orbits.
 
 This mod was mostly made for myself, so in it's current state outside of anything breaking I consider it completed.
 However I may iterate and add some more features eventually. 
