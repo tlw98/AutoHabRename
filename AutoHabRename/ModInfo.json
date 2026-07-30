@@ -1,0 +1,29 @@
+{
+	"title": "AutoHabRename",
+	"author": "MeatyBoBeaty",
+	"description": "AutoHabRename",
+	"LoadOrder": 0,
+	"TemplatesToConcatArrays": [
+
+	],
+	"TemplatesToReplaceArrays": [
+
+	],
+	"TemplatesToReplace": [
+
+	],
+	"Id": "AutoHabRename",
+	"DisplayName": "AutoHabRename",
+	"Author": "MeatyBoBeaty",
+	"Version": "0.0.1",
+	"ManagerVersion": "0.32.4.0",
+	"GameVersion": "0.4.78",
+	"Requirements": [
+
+	],
+	"LoadAfter": [
+
+	],
+	"AssemblyName": "AutoHabRename.dll",
+	"EntryMethod": "AutoHabRename.Main.Load"
+}
