@@ -1,5 +1,4 @@
 <Project Sdk="Microsoft.NET.Sdk">
-
     <PropertyGroup>
         <TargetFramework>net48</TargetFramework>
         <AssemblyName>AutoHabRename</AssemblyName>
@@ -7,33 +6,35 @@
         <OutputType>Library</OutputType>
         <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
     </PropertyGroup>
-
     <ItemGroup>
         <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.3" PrivateAssets="All"/>
     </ItemGroup>
-
     <ItemGroup>
         <Reference Include="0Harmony">
-            <HintPath>..\..\..\SteamGamesForWineStuff\share\Steam\steamapps\common\Terra Invicta\TerraInvicta_Data\Managed\UnityModManager\0Harmony.dll</HintPath>
+            <HintPath>$(TERRAINVICTA_PATH)/TerraInvicta_Data/Managed/UnityModManager/0Harmony.dll</HintPath>
             <Private>false</Private>
         </Reference>
         <Reference Include="Assembly-CSharp">
-            <HintPath>..\..\..\SteamGamesForWineStuff\share\Steam\steamapps\common\Terra Invicta\TerraInvicta_Data\Managed\Assembly-CSharp.dll</HintPath>
+            <HintPath>$(TERRAINVICTA_PATH)/TerraInvicta_Data/Managed/Assembly-CSharp.dll</HintPath>
             <Private>false</Private>
         </Reference>
         <Reference Include="UnityEngine">
-            <HintPath>..\..\..\SteamGamesForWineStuff\share\Steam\steamapps\common\Terra Invicta\TerraInvicta_Data\Managed\UnityEngine.dll</HintPath>
+            <HintPath>$(TERRAINVICTA_PATH)/TerraInvicta_Data/Managed/UnityEngine.dll</HintPath>
             <Private>false</Private>
         </Reference>
         <Reference Include="UnityEngine.CoreModule">
-            <HintPath>..\..\..\SteamGamesForWineStuff\share\Steam\steamapps\common\Terra Invicta\TerraInvicta_Data\Managed\UnityEngine.CoreModule.dll</HintPath>
+            <HintPath>$(TERRAINVICTA_PATH)/TerraInvicta_Data/Managed/UnityEngine.CoreModule.dll</HintPath>
             <Private>false</Private>
         </Reference>
         <Reference Include="UnityModManager">
-            <HintPath>..\..\..\SteamGamesForWineStuff\share\Steam\steamapps\common\Terra Invicta\TerraInvicta_Data\Managed\UnityModManager\UnityModManager.dll</HintPath>
+            <HintPath>$(TERRAINVICTA_PATH)/TerraInvicta_Data/Managed/UnityModManager/UnityModManager.dll</HintPath>
             <Private>false</Private>
         </Reference>
-        <Reference Include="System.Web.Extensions"/>
     </ItemGroup>
-
+    <Target Name="PostBuild" AfterTargets="PostBuildEvent">
+        <Copy SourceFiles="$(ProjectDir)ModInfo.json" DestinationFiles="$(TERRAINVICTA_PATH)/Mods/Enabled/$(ProjectName)/ModInfo.json" OverwriteReadOnlyFiles="true" />
+        <Copy SourceFiles="$(TargetDir)$(ProjectName).dll" DestinationFiles="$(TERRAINVICTA_PATH)/Mods/Enabled/$(ProjectName)/$(ProjectName).dll" OverwriteReadOnlyFiles="true" />
+        <Copy SourceFiles="$(ProjectDir)module_names.txt" DestinationFiles="$(TERRAINVICTA_PATH)/Mods/Enabled/$(ProjectName)/module_names.txt" OverwriteReadOnlyFiles="true" />
+        <Copy SourceFiles="$(ProjectDir)orbit_names.txt" DestinationFiles="$(TERRAINVICTA_PATH)/Mods/Enabled/$(ProjectName)/orbit_names.txt" OverwriteReadOnlyFiles="true" />
+    </Target>
 </Project>
